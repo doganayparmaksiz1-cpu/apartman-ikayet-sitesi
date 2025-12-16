@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (username, password) => {
         try {
-            const res = await fetch('http://localhost:3000/api/login', {
+            const res = await fetch('/api/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, password })
@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
 
     const registerUser = async (newUser) => {
         try {
-            const res = await fetch('http://localhost:3000/api/users', {
+            const res = await fetch('/api/users', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(newUser)
@@ -59,7 +59,7 @@ export const AuthProvider = ({ children }) => {
 
     const getAllUsers = async () => {
         try {
-            const res = await fetch('http://localhost:3000/api/users');
+            const res = await fetch('/api/users');
             return await res.json();
         } catch (err) {
             return [];
