@@ -9,7 +9,7 @@ export const ComplaintProvider = ({ children }) => {
 
     const fetchComplaints = async () => {
         try {
-            const res = await fetch('http://localhost:3000/api/complaints');
+            const res = await fetch('/api/complaints');
             const data = await res.json();
             setComplaints(data);
         } catch (err) {
@@ -26,7 +26,7 @@ export const ComplaintProvider = ({ children }) => {
 
     const addComplaint = async (complaint) => {
         try {
-            const res = await fetch('http://localhost:3000/api/complaints', {
+            const res = await fetch('/api/complaints', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(complaint)
@@ -41,7 +41,7 @@ export const ComplaintProvider = ({ children }) => {
 
     const updateStatus = async (id, newStatus) => {
         try {
-            await fetch(`http://localhost:3000/api/complaints/${id}/status`, {
+            await fetch(`/api/complaints/${id}/status`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status: newStatus })
